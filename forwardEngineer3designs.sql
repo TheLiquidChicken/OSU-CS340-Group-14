@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Customers` (
   `primaryContact` VARCHAR(45) NOT NULL,
   `totalOrders` INT NULL,
   `totalSpent` DECIMAL(19,2) NULL,
-  `address` VARCHAR(45) NOT NULL,
+  `address` VARCHAR(180) NOT NULL,
   `mostUsedColor` INT NULL,
   `mostUsedMaterialType` INT NULL,
   PRIMARY KEY (`customerID`),
