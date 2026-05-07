@@ -58,7 +58,7 @@ CREATE TABLE Customers (
   PRIMARY KEY (customerID),
   UNIQUE (customerID),
   FOREIGN KEY (mostUsedColor) REFERENCES Colors(colorID),
-  FOREIGN KEY (mostUsedMaterialType) REFERENCES MatserialTypes(materialTypeID)
+  FOREIGN KEY (mostUsedMaterialType) REFERENCES MaterialTypes(materialTypeID)
 ) ENGINE = InnoDB;
 
 -- Creates Orders. Deletes row if Customers are deleted.
@@ -67,7 +67,7 @@ CREATE TABLE Orders (
   revenue DECIMAL(19,2) NOT NULL,
   customers_customerID INT NOT NULL,
   date DATE NOT NULL,
-  PRIMARY KEY (orderID, customers_customerID),
+  PRIMARY KEY (orderID),
   UNIQUE (orderID),
   FOREIGN KEY (customers_customerID) 
 	REFERENCES Customers(customerID)
@@ -112,7 +112,7 @@ CREATE TABLE PartMaterials (
   partMaterialsID INT NOT NULL AUTO_INCREMENT,
   parts_partID INT NOT NULL,
   materials_materialID INT NOT NULL,
-  PRIMARY KEY (partMaterialsID, parts_partID, materials_materialID),
+  PRIMARY KEY (partMaterialsID),
   UNIQUE (partMaterialsID),
   FOREIGN KEY (parts_partID) 
 	REFERENCES Parts(partID)
@@ -127,7 +127,7 @@ CREATE TABLE PartMachines (
   partMachinesID INT NOT NULL AUTO_INCREMENT,
   parts_partID INT NOT NULL,
   machines_machineID INT NOT NULL,
-  PRIMARY KEY (partMachinesID, parts_partID, machines_machineID),
+  PRIMARY KEY (partMachinesID),
   UNIQUE (partMachinesID),
   FOREIGN KEY (parts_partID) 
 	REFERENCES Parts(partID)
